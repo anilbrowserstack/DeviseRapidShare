@@ -1,0 +1,31 @@
+<h1>Pages#home</h1>
+
+<!DOCTYPE html>
+<html>
+  <head>
+<title> TITLE </title>
+<%= csrf_meta_tag %>
+  </head>
+  <body>
+<div class="container"> 
+<header>
+<nav class="round">
+<ul>
+<li><%= link_to "Home", '#' %></li> 
+</nav>
+</header>
+<section class="round">
+<%= yield %> 
+</section>
+    </div>
+    <% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, :method => :delete, :class => 'navbar-link'  %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Login now", new_user_session_path, :class => 'navbar-link'  %>
+<% end %>
+  </body>
+</html>
+

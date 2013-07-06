@@ -1,0 +1,29 @@
+<h1>Pages#home</h1>
+
+<!DOCTYPE html>
+<html>
+  <head>
+<title> TITLE </title>
+<%= csrf_meta_tag %>
+  </head>
+  <body>
+<div class="container"> 
+<header>
+<nav class="round">
+<ul>
+<li><%= link_to "Home", '#' %></li> 
+<% if signed_in? %>
+		<li><%= link_to "Sign out", '#' %></li> 
+<% else %>
+		<li><%= link_to "Sign in", '#' %></li>
+<% end %>
+</ul> 
+</nav>
+</header>
+<section class="round">
+<%= yield %> 
+</section>
+    </div>
+  </body>
+</html>
+
